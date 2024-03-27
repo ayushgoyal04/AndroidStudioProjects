@@ -5,8 +5,8 @@ fun main() {
  * val -> Immutable
  * best practice -> val is prefferd in general use
  */
-    var name = "World"
-    name = "Ayush"
+//    var name = "World"
+    var name = "Ayush"
     val myName = "Goyal"
     val name2: String = "explicit declaration"
     val anotherDec: String
@@ -14,7 +14,7 @@ fun main() {
     val age:Int
     age = 20
     println("Hello, my name is $name $myName, I am $age years old!!!")
-
+print("$name2 $anotherDec ")
 /**
  * DataTypes in kotlin ->
  * byte = 8 bits
@@ -28,7 +28,7 @@ fun main() {
     val oneLong = 1L    // long
     val pi = 3.14       // double
     val piFloat = 3.14F // float
-
+print("$number $oneLong $pi $piFloat")
 /**
  * Operators
  * (+,-,*,/,%) 
