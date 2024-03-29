@@ -1,4 +1,5 @@
-/** Lambda(function/ expression) = A function without a name -> Shorter in length with less syntax
+/** 
+ * Lambda(function/ expression) = A function without a name -> Shorter in length with less syntax
  * format->{  Variable: Type = Parameters -> Body  }  
  **/
 
@@ -37,12 +38,15 @@ val name: (String) -> Unit = { print("Hello, I am $it")}
 
 
 
-/**  Trailing Lambda
+/** 
+ *  Trailing Lambda
  * passing functions as a parameters
  * The function must be the last parameter being passed 
  **/
  
  fun enhancedMessage(message: String, funAsParameter: () -> Int){
      println("$message ${funAsParameter()}")
- }
+    
+    
+}
  

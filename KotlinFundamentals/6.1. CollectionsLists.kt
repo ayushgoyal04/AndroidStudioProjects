@@ -47,6 +47,7 @@
      
      
      
+     
         // Initializing lists explicitly
     val myNewList = mutableListOf<String> ()
     myNewList.add("Hey")
