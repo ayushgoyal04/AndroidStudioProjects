@@ -53,6 +53,10 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyApp() {
+    // State hosting-> taking a state up the level
+    var moneyCounter = remember { // another way of initializing variables
+        mutableIntStateOf(0)
+    }
 
     Surface(
         modifier = Modifier
@@ -65,34 +69,47 @@ fun MyApp() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = "$100", //  Adding style to the text "$100"
+            Text(text = "$${moneyCounter.value}", //  Adding style to the text "$100"
                 style = TextStyle(
                     color = Color.White,
                     fontSize = 30.sp,  // sp->  Recommended size unit for font
                     fontWeight = FontWeight.ExtraBold
                 ))
 // Spacer function is used to create space between elements (tap button and $100 in this case)
-            Spacer(modifier = Modifier.height(130.dp))
-            CreateCircle()
+            Spacer(modifier = Modifier.height(120.dp))
+
+            CreateCircle(moneyCounter = moneyCounter.value) {
+                newValue -> moneyCounter.value = newValue
+            }
+
+            Spacer(modifier = Modifier.height(30.dp))
+
+            if (moneyCounter.value> 25) {
+                Text(text = "Lots of money!")
+            }
         }
 
     }
 }
 
-@Preview
+// Preview
 @Composable
-fun CreateCircle() {
-    //  initializing a var // var moneyCounter = 0
-    var moneyCounter by remember {
-        mutableIntStateOf(0)
-    }
+fun CreateCircle(moneyCounter: Int = 0, updateMoneyCounter: (Int)-> Unit) {
+    //  initializing a var // var moneyCounter = 0 (old way)
+
+/* *
+* another way of initializing variables
+*    var moneyCounter by remember { //(Recomposition)
+*        mutableIntStateOf(0)
+*    }
+* */
     Card(
         modifier = Modifier
             .padding(3.dp)
             .size(105.dp)
             .clickable {
-                moneyCounter += 1
-                Log.d("Counter", "CreateCircle: $moneyCounter")
+//                moneyCounter.value += 1
+                updateMoneyCounter(moneyCounter + 1)
             },
         shape = CircleShape,
         elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
