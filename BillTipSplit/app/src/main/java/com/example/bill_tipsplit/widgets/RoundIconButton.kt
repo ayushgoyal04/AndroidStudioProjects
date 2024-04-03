@@ -10,6 +10,7 @@ import androidx.compose.material3.CardElevation
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -23,22 +24,24 @@ val IconButtonSizeModifier = Modifier.size(40.dp)
 
 @Composable
 fun RoundIconButton (
-    modifier: Modifier = Modifier,
+
     imageVector: ImageVector,
     onClick: () -> Unit,
+    modifier: Modifier = Modifier,
     tint: Color = Color.Black.copy(alpha = 0.8f),
-    backgroundColor: Color = MaterialTheme.colorScheme.background, // Update this line
+    backgroundColor: Color = MaterialTheme.colorScheme.background,
     elevation: Dp = 4.dp
             ) {
     Card(
         modifier = modifier
-            .padding(all = 4.dp)
+            .padding(all = 14.dp)
             .clickable { onClick.invoke() }
             .then(IconButtonSizeModifier),
         shape = CircleShape,
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
-        Icon(imageVector = imageVector, contentDescription = "Plus and minus icon",
+        Icon(imageVector = imageVector,
+            contentDescription = "Plus and minus icon",
             tint = tint)
     }
 }
