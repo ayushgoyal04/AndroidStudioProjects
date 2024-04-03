@@ -66,4 +66,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    //Icons
+    val compose_version = "1.1.0-alpha05"
+    implementation("androidx.compose.material:material-icons-extended:$compose_version")
 }
