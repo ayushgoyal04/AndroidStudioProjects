@@ -141,7 +141,6 @@ fun TopHeader(totalPerPerson: Double = 0.0) {
       }
 
 
-
   @ExperimentalComposeUiApi
 @Composable
 fun BillForm(modifier: Modifier = Modifier,

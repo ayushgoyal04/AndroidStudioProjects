@@ -1,6 +1,7 @@
 package com.example.bill_tipsplit.widgets
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -23,15 +24,36 @@ import androidx.compose.ui.unit.dp
 val IconButtonSizeModifier = Modifier.size(40.dp)
 
 @Composable
+//fun RoundIconButton (
+//
+//    imageVector: ImageVector,
+//    onClick: () -> Unit,
+//    modifier: Modifier = Modifier,
+//    tint: Color = Color.Black.copy(alpha = 0.8f),
+//    backgroundColor: Color = MaterialTheme.colorScheme.background,
+//    elevation: Dp = 4.dp
+//            ) {
+//    Card(
+//        modifier = modifier
+//            .padding(all = 14.dp)
+//            .clickable { onClick.invoke() }
+//            .then(IconButtonSizeModifier),
+//        shape = CircleShape,
+//        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+//    ) {
+//        Icon(imageVector = imageVector,
+//            contentDescription = "Plus and minus icon",
+//            tint = tint)
+//    }
+//}
 fun RoundIconButton (
-
     imageVector: ImageVector,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     tint: Color = Color.Black.copy(alpha = 0.8f),
     backgroundColor: Color = MaterialTheme.colorScheme.background,
     elevation: Dp = 4.dp
-            ) {
+) {
     Card(
         modifier = modifier
             .padding(all = 14.dp)
@@ -40,8 +62,15 @@ fun RoundIconButton (
         shape = CircleShape,
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
-        Icon(imageVector = imageVector,
-            contentDescription = "Plus and minus icon",
-            tint = tint)
+        Box(
+            contentAlignment = Alignment.Center
+        ) {
+            Icon(
+                imageVector = imageVector,
+                contentDescription = "Plus and minus icon",
+                tint = tint,
+                modifier = Modifier.size(24.dp) // Adjust size as needed
+            )
+        }
     }
 }
